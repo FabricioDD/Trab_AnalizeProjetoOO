@@ -17,7 +17,7 @@ public class MolhoExtra extends HamburguerDecorator {
     }
 
     @Override
-    public String getDescricao(){
-        return "Hamburguer de " + proteina + " no " + pao + " com " + queijo + " e " + molho + " extra";
+    public String getDescricao() {
+        return "Hamburguer de " + tipo + " com " + molho + " extra";
     }
 }
