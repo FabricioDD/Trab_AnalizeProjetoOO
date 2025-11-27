@@ -10,8 +10,8 @@ public abstract class Hamburguer implements Produto {
     protected String proteina;
     protected double preco;
 
-    public Hamburguer(String proteina, double preco) {
-        this.proteina = proteina;
+    public Hamburguer(String tipo, double preco) {
+        this.tipo = tipo;
         this.preco = preco;
     }
 
