@@ -12,4 +12,9 @@ public class BatataFrita implements Produto{
     public double getPreco() {
         return preco;
     }
+
+    @Override
+    public String getDescricao() {
+        return "Batata Frita 400g";
+    }
 }
