@@ -13,4 +13,9 @@ public class Cerveja implements Produto{
     public double getPreco() {
         return preco;
     }
+
+    @Override
+    public String getDescricao() {
+        return "Cerveja long neck 600ml";
+    }
 }
