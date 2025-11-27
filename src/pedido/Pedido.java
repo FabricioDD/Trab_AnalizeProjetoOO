@@ -13,18 +13,23 @@ public class Pedido {
     private double valorTotal;
 
     public Pedido(Cliente cliente){
-
+        this.cliente = cliente;
     }
     public void adicionarProduto(Produto p) {
-
+        listaProdutos.add(p);
     }
 
     public void removerProduto(Produto p){
-
+        listaProdutos.remove(p);
     }
 
     public double calculaValorTotal(){
-        return 0;
+        double total = 0;
+
+        for(Produto p: listaProdutos){
+            total += p.getPreco();
+        }
+        return total;
     }
 
     public void setEstrategiaPagamento(EstrategiaPagamento ep){

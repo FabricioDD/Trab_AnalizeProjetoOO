@@ -3,7 +3,7 @@ package hamburguer.modelo;
 public class HamburguerVegetariano extends Hamburguer{
 
     public HamburguerVegetariano(){
-        super("Hamburguer de soja", 30);
+        super("bife de soja", 30);
     }
 
 }
