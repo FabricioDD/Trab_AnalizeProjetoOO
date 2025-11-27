@@ -6,7 +6,7 @@ public abstract class HamburguerDecorator extends Hamburguer {
     public Hamburguer hamburguer;
 
     public HamburguerDecorator(Hamburguer hamburguer) {
-        super(hamburguer.getProteina(), hamburguer.getPreco());
+        super(hamburguer.getTipo(), hamburguer.getPreco());
         this.hamburguer = hamburguer;
     }
 
