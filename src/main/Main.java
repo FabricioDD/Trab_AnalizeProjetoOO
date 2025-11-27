@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        Menu menu = new Menu();
+        SistemaLancheria sistema = new SistemaLancheria(menu);
+        sistema.iniciar();
     }
 }
