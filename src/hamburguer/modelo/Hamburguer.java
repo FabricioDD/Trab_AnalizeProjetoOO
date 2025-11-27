@@ -21,7 +21,7 @@ public abstract class Hamburguer implements Produto {
     }
 
     public String getDescricao() {
-        return "Hamburguer de " + proteina + " no " + pao + " com " + queijo + " e " + molho;
+        return "Hamburguer de " + tipo + " no " + pao + " com " + queijo + " e " + molho;
     }
 
     public String getProteina() {
