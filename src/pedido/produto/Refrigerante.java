@@ -13,4 +13,9 @@ public class Refrigerante implements Produto{
     public double getPreco() {
         return preco;
     }
+
+    @Override
+    public String getDescricao() {
+        return "Refrigerante 350 ml";
+    }
 }
