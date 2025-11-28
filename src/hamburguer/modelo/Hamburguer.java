@@ -7,7 +7,7 @@ public abstract class Hamburguer implements Produto {
     protected String queijo = "Cheddar";
     protected String molho = "Barbecue Especial";
 
-    protected String proteina;
+    protected String tipo;
     protected double preco;
 
     public Hamburguer(String tipo, double preco) {
@@ -24,7 +24,7 @@ public abstract class Hamburguer implements Produto {
         return "Hamburguer de " + tipo + " no " + pao + " com " + queijo + " e " + molho;
     }
 
-    public String getProteina() {
-        return proteina;
+    public String getTipo() {
+        return tipo;
     }
 }

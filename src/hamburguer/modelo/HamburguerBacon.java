@@ -6,7 +6,6 @@ public class HamburguerBacon extends Hamburguer {
         super("bacon", 35);
     }
 
-
 }
 
 

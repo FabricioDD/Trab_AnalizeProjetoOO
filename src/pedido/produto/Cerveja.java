@@ -1,10 +1,10 @@
 package pedido.produto;
 
-public class Cerveja implements Produto{
+public class Cerveja implements Produto {
     private double preco;
     private int qtd;
 
-    public Cerveja(int qtd){
+    public Cerveja(int qtd) {
         this.preco = 12.5;
         this.qtd = qtd;
     }

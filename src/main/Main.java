@@ -1,16 +1,8 @@
 package main;
 
-import cliente.Cliente;
-import hamburguer.fabrica.FabricaHamburguer;
-import hamburguer.fabrica.FabricaHamburguerBacon;
-import hamburguer.modelo.Hamburguer;
-import hamburguer.modelo.HamburguerBacon;
-import hamburguer.modelo.HamburguerTriplo;
-
-import java.util.Scanner;
+import ui.Menu;
 
 public class Main {
-
     public static void main(String[] args) {
         Menu menu = new Menu();
         SistemaLancheria sistema = new SistemaLancheria(menu);

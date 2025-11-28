@@ -12,51 +12,53 @@ public class Pedido {
     private EstrategiaPagamento metodoPagamento;
     private double valorTotal;
 
-    public Pedido(Cliente cliente){
+    public Pedido(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public void adicionarProduto(Produto p) {
         listaProdutos.add(p);
     }
 
-    public void removerProduto(Produto p){
+    public void removerProduto(Produto p) {
         listaProdutos.remove(p);
     }
 
-    public double calculaValorTotal(){
+    public double calculaValorTotal() {
         double total = 0;
 
-        for(Produto p: listaProdutos){
+        for (Produto p : listaProdutos) {
             total += p.getPreco();
         }
         return total;
     }
 
-    public void setEstrategiaPagamento(EstrategiaPagamento ep){
-
+    public void setEstrategiaPagamento(EstrategiaPagamento ep) {
+        metodoPagamento = ep;
     }
 
-    public void finalizarPedido(){
+    public void exibirInfoPedido() {
+        System.out.println("\n==========================================");
+        System.out.println("              CUPOM DO PEDIDO             ");
+        System.out.println("==========================================");
+        System.out.printf("CLIENTE: %s\n", cliente.getNome().toUpperCase());
+        System.out.println("------------------------------------------");
 
+        System.out.printf("%-30s | %s\n", "ITEM", "VALOR");
+        System.out.println("------------------------------------------");
+
+        for (Produto p : listaProdutos) {
+            System.out.printf("%-30s | R$ %6.2f\n", p.getDescricao(), p.getPreco());
+        }
+
+        System.out.println("------------------------------------------");
+
+        System.out.printf("TOTAL A PAGAR:                 R$ %6.2f\n", calculaValorTotal());
+        System.out.println("==========================================\n");
     }
 
-    public void exibirInfo(){
-
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public ArrayList<Produto> getListaProdutos() {
-        return listaProdutos;
-    }
-
-    public EstrategiaPagamento getMetodoPagamento() {
-        return metodoPagamento;
-    }
-
-    public double getValorTotal() {
-        return valorTotal;
+    public void finalizarPedido() {
+        double valor = calculaValorTotal();
+        metodoPagamento.pagar(valor);
     }
 }
