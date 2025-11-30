@@ -18,6 +18,6 @@ public class CheddarExtra extends HamburguerDecorator {
 
     @Override
     public String getDescricao() {
-        return "Hamburguer de " + tipo + " com " + queijo + " extra";
+        return "Hamburguer de " + tipo + " com queijo extra";
     }
 }

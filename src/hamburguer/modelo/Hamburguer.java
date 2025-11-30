@@ -3,10 +3,6 @@ package hamburguer.modelo;
 import pedido.produto.Produto;
 
 public abstract class Hamburguer implements Produto {
-    protected String pao = "Pão Brioche";
-    protected String queijo = "Cheddar";
-    protected String molho = "Barbecue Especial";
-
     protected String tipo;
     protected double preco;
 
@@ -21,7 +17,7 @@ public abstract class Hamburguer implements Produto {
     }
 
     public String getDescricao() {
-        return "Hamburguer de " + tipo + " no " + pao + " com " + queijo + " e " + molho;
+        return "Hamburguer de " + tipo;
     }
 
     public String getTipo() {

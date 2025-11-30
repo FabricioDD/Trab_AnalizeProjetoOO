@@ -11,7 +11,7 @@ public class Cerveja implements Produto {
 
     @Override
     public double getPreco() {
-        return preco;
+        return preco * qtd;
     }
 
     @Override
