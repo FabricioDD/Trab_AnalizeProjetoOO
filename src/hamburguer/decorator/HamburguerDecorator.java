@@ -10,5 +10,6 @@ public abstract class HamburguerDecorator extends Hamburguer {
         this.hamburguer = hamburguer;
     }
 
+    @Override
     public abstract double getPreco();
 }
