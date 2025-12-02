@@ -1,0 +1,40 @@
+name: Build and Analyze
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'temurin'
+
+      - name: Compilar Projeto Manualmente
+        run: |
+          mkdir out
+          find src -name "*.java" > sources.txt
+          javac -d out -cp src @sources.txt
+          echo "Compilacao concluida! Pasta out criada."
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.java.binaries=out
+            -Dsonar.sources=src
