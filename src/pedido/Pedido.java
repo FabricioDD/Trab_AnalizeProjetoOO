@@ -3,13 +3,17 @@ package pedido;
 import cliente.Cliente;
 import pedido.pagamento.EstrategiaPagamento;
 import pedido.produto.Produto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 public class Pedido {
 	private Cliente cliente;
-	private ArrayList<Produto> listaProdutos = new ArrayList();
+	private ArrayList<Produto> listaProdutos = new ArrayList<>();
 	private EstrategiaPagamento metodoPagamento;
+	private static final String MENSAGEM_AGRADECIMENTO = "OBRIGADO PELA PREFERENCIA!";
+	private static final Logger logger = LoggerFactory.getLogger(Pedido.class);
 	
 	public Pedido(Cliente cliente) {
 		this.cliente = cliente;
@@ -36,30 +40,32 @@ public class Pedido {
 		metodoPagamento = ep;
 	}
 
-	public void exibirInfoPedido() {
-		System.out.println("\n==========================================");
-		System.out.println("              CUPOM DO PEDIDO             ");
-		System.out.println("==========================================");
-		System.out.printf("CLIENTE: %s\n", cliente.getNome().toUpperCase());
-		System.out.println("------------------------------------------");
-		System.out.println("DESCRIÇÃO");
-		System.out.println("------------------------------------------");
+public void exibirInfoPedido() {
+        logger.info("\n==========================================");
+        logger.info("              CUPOM DO PEDIDO             ");
+        logger.info("==========================================");
+        
+        logger.info("CLIENTE: {}", cliente.getNome().toUpperCase()); 
+        
+        logger.info("------------------------------------------");
+        logger.info("DESCRIÇÃO");
+        logger.info("------------------------------------------");
 
-		for (Produto p : listaProdutos) {
-			System.out.println("  " + p.getDescricao());
-		}
+        for (Produto p : listaProdutos) {
+            logger.info("  {}", p.getDescricao());
+        }
 
-		System.out.println("------------------------------------------");
+        logger.info("------------------------------------------");
 
-		System.out.printf("TOTAL A PAGAR .................... R$ %6.2f\n", calculaValorTotal());
+        String totalFormatado = String.format("R$ %6.2f", calculaValorTotal());
+        logger.info("TOTAL A PAGAR .................... {}", totalFormatado); 
 
-		System.out.println("==========================================");
-		System.out.println("        OBRIGADO PELA PREFERENCIA!        ");
-		System.out.println("==========================================\n");
-	}
-
+        logger.info("==========================================");
+        logger.info("        {}        ", MENSAGEM_AGRADECIMENTO); 
+        logger.info("==========================================\n");
+    }
 	public void finalizarPedido() {
-		double valor = calculaValorTotal();
-		metodoPagamento.pagar(valor);
-	}
-}
+        double valor = calculaValorTotal();
+        metodoPagamento.pagar(valor);
+
+    }
