@@ -1,7 +1,7 @@
 package pedido;
 
 import cliente.Cliente;
-import pedido.pagamento.EstrategiaPagamento;
+import pedido.strategyPagamento.EstrategiaPagamento;
 import pedido.produto.Produto;
 
 import java.util.ArrayList;

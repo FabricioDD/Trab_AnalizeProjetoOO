@@ -1,4 +1,4 @@
-package pedido.pagamento;
+package pedido.strategyPagamento;
 
 public class PagamentoCredito implements EstrategiaPagamento{
     @Override
