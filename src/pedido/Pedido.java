@@ -69,3 +69,4 @@ public void exibirInfoPedido() {
         metodoPagamento.pagar(valor);
 
     }
+	}
